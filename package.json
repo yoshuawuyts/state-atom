@@ -1,17 +1,38 @@
 {
   "name": "state-atom",
   "version": "1.0.0",
-  "description": "state-atom",
+  "description": "Create an immutable state atom",
   "main": "index.js",
   "scripts": {
     "test": "standard && NODE_ENV=test node test",
-    "test-cov": "standard && NODE_ENV=test istanbul cover test.js"
+    "test:cov": "standard && NODE_ENV=test istanbul cover test.js"
   },
   "repository": "yoshuawuyts/state-atom",
-  "keywords": [],
+  "keywords": [
+    "immutable",
+    "state",
+    "atom",
+    "observ",
+    "application",
+    "flux",
+    "react",
+    "reactive",
+    "frp",
+    "functional",
+    "container",
+    "core",
+    "heart",
+    "data",
+    "sync",
+    "time travel",
+    "hot reloading",
+    "micro framework"
+  ],
   "license": "MIT",
   "dependencies": {
-    "seamless-immutable": "^2.4.2"
+    "observ": "^0.2.0",
+    "observ-array": "^3.2.1",
+    "observ-struct": "^6.0.0"
   },
   "devDependencies": {
     "istanbul": "^0.3.17",

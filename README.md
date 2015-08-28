@@ -5,8 +5,8 @@
 [![Downloads][downloads-image]][downloads-url]
 [![js-standard-style][standard-image]][standard-url]
 
-Create an [`immutable`](https://npmjs.com/package/seamless-immutable)
-application state atom. Uses cursors and events to manage state.
+Create an immutable state atom. Forms the basis for hot reloading, infinite
+undo / redo (time-travel) and more.
 
 ## Installation
 ```sh
@@ -15,47 +15,39 @@ $ npm install state-atom
 
 ## Usage
 ```js
-const stateAtom = require('state-atom')
+const atom = require('state-atom')
 
-// create global state & local state
-const atom = stateAtom()
-const animals = atom(node => node.type === 'cat')
-var localAnimals = []
+const array = atom.array
+const value = atom.value
 
-animals.on('change', nwAnimals => localAnimals = nwAnimals)
+const state = atom({
+  foo: array([ value('bin'), value('baz') ]),
+  bar: array([ value('beep'), value('boop') ])
+})
 
-// update global state with new array value
-animals([{ type: 'cat', name: 'luna' }].concat(localAnimals))
-
-// get value from global state
-animals()
-// => [{ type: 'cat', name: 'luna' }]
+state((curr) => {
+  console.log(curr.foo)
+  // => [ 'bin', 'baz' ]
+  console.log(curr.bar)
+  // => [ 'beep', 'boop' ]
+})
 ```
 
 ## API
-### atom = stateAtom()
-Create a new state atom. Generally you should only create 1 atom per
-application.
+### state = atom(obj)
+Create a new immutable state atom from an object.
 
-### cursor = atom(filterFunction)
-Create a new cursor. Iterates over all items and checks if they fulfill the
-query conditions.
+### state(cb(curr))
+Register a handler function that is called whenever state changes.
 
-### cursor.on(event, cb)
-Attach a callback to an event. See [events](#Events) for an overview of
-available events.
+### struct = atom.struct
+Access [`observ-struct`](https://github.com/Raynos/observ-struct).
 
-### cursor(value)
-Set a value at the cursor; overrides all existing elements at the cursor.
-Alias: `cursor.set`.
+### array = atom.array
+Access [`observ-array`](https://github.com/Raynos/observ-array).
 
-### cursor()
-Get an immutable copy of the value in the cursor. Alias: `cursor.get`.
-
-## Events
-### .on('change', cb(curr, prev))
-Listen to changes on the cursor. Emits the current and previous values of the
-cursor's value.
+### value = atom.value
+Access [`observ`](https://github.com/Raynos/observ).
 
 ## FAQ
 ### What is a "state atom"?
@@ -75,6 +67,11 @@ state (memory). `state-atom` takes this analogy and applies it to the
 frontend. Changes saved to the atom are immutable, returning mutable copies
 when read. Only when actively persisting the state back to the atom will
 listeners fire and changes propagate throughout the application.
+
+## Thanks
+Shout out to [Raynos](https://github.com/raynos) for creating Mercury and its
+dependencies of which this package makes heavy use. The original version of
+this package was extracted from Mercury.
 
 ## See Also
 - [barracks](https://github.com/yoshuawuyts/barracks) - action dispatcher for unidirectional data flows
