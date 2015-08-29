@@ -1,7 +1,7 @@
 # state-atom
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
+[![Test coverage][codecov-image]][codecov-url]
 [![Downloads][downloads-image]][downloads-url]
 [![js-standard-style][standard-image]][standard-url]
 
@@ -85,8 +85,8 @@ this package was extracted from Mercury.
 [npm-url]: https://npmjs.org/package/state-atom
 [travis-image]: https://img.shields.io/travis/yoshuawuyts/state-atom/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/yoshuawuyts/state-atom
-[coveralls-image]: https://img.shields.io/coveralls/yoshuawuyts/state-atom.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/yoshuawuyts/state-atom?branch=master
+[codecov-image]: https://img.shields.io/codecov/c/github/yoshuawuyts/state-atom/master.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/yoshuawuyts/state-atom
 [downloads-image]: http://img.shields.io/npm/dm/state-atom.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/state-atom
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
