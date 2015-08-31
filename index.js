@@ -1,4 +1,4 @@
-const varhash = require('obser-varhash')
+const varhash = require('observ-varhash')
 const struct = require('observ-struct')
 const array = require('observ-array')
 const assert = require('assert')
