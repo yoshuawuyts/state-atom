@@ -46,6 +46,9 @@ Access [`observ-struct`](https://github.com/Raynos/observ-struct).
 ### array = atom.array
 Access [`observ-array`](https://github.com/Raynos/observ-array).
 
+### array = atom.varhash
+Access [`observ-varhash`](https://github.com/Raynos/observ-varhash).
+
 ### value = atom.value
 Access [`observ`](https://github.com/Raynos/observ).
 
